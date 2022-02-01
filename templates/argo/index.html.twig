@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Argonautes
+{% endblock %}
+
+{% block body %}
+
+	<main class="vh-100">
+		<section>
+			<div class="container ">
+				<div class="d-flex justify-content-center p-5">
+					<h1 class="text-center">Ajouter un(e) Argonaute</h1>
+				</div>
+				<div class="form-group">
+
+					{{ form_start(add_argo_form) }}
+					<div class="d-flex justify-content-center w-100">
+						{{form_label(add_argo_form.name)}}
+					</div>
+					<div class="d-flex justify-content-center w-100">
+						{{form_widget(add_argo_form.name)}}
+						<button type="submit" class="btn btn-primary">Ajouter</button>
+					</div>
+
+					{{form_end(add_argo_form)}}
+				</div>
+			</div>
+		</section>
+		{# Liste des nouveaux argonautes #}
+		<section>
+			<div class="container p-3">
+				<div class="d-flex d-flex flex-column align-items-center p-1">
+					{% if argo %}
+						<h2>Membres de l'équipage</h2>
+					{% endif %}
+					<div class="row p-3">
+						{% for argonaute in argo %}
+							<div class="col-4 text-center p-3">
+								{{argonaute.name}}
+							</div>
+						{% endfor %}
+
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+	</main>
+
+	<footer class="position-relative">
+		<div class="bg-light text-center position-absolute top-100 end-0 w-100">
+			<div class="text-center p-3 bg-primary">
+				Réalisé par Alan en Anthestérion de l'an 515 avant JC
+			</div>
+		</div>
+	</footer>
+</div>{% endblock %}
